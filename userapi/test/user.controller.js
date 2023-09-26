@@ -77,10 +77,10 @@ describe('User', () => {
       });
      })
   
-     it('cannot get a user when it does not exist', (done) => {
+   //  it('cannot get a user when it does not exist', (done) => {
        // Chech with any invalid user
-       done()
-     })
+     //  done()
+     //})
   
    })
 })
