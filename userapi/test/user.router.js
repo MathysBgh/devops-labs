@@ -96,14 +96,14 @@ describe('User REST API', () => {
     })
   
     it('cannot get a user when it does not exist', (done) => {
-      // Essayez de récupérer un utilisateur qui n'existe pas
+      // On essaye de recuperer un user qui n'existe pas
       chai.request(app)
         .get('/user/nonexistentuser')
         .then((getResponse) => {
           chai.expect(getResponse).to.have.status(404);
           chai.expect(getResponse.body.status).to.equal('error');
           chai.expect(getResponse).to.be.json;
-          // Assurez-vous que le message d'erreur indique que l'utilisateur n'existe pas
+          // Message d'erreur indiquant que l'user n'existe pas
           chai.expect(getResponse.body.message).to.equal("L'utilisateur n'existe pas");
           done();
         })
