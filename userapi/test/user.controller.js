@@ -77,10 +77,15 @@ describe('User', () => {
       });
      })
   
-   //  it('cannot get a user when it does not exist', (done) => {
+     it('cannot get a user when it does not exist', (done) => {
        // Chech with any invalid user
-     //  done()
-     //})
-  
+       // 1. Attempt to get a non-existent user
+      userController.get('nonexistentuser', (err, result) => {
+        // 2. Check if there is an error and the result is null
+        expect(err).to.not.be.equal(null);
+        expect(result).to.be.equal(null);
+       done()
+     })
+    })
    })
 })
