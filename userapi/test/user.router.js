@@ -23,7 +23,7 @@ describe('User REST API', () => {
       const user = {
         username: 'jaishan',
         firstname: 'Jaishan',
-        lastname: 'BURTON'
+        lastname: 'Burton'
       }
       chai.request(app)
         .post('/user')
@@ -42,7 +42,7 @@ describe('User REST API', () => {
     it('pass wrong parameters', (done) => {
       const user = {
         firstname: 'Jaishan',
-        lastname: 'BURTON'
+        lastname: 'Burton'
       }
       chai.request(app)
         .post('/user')
@@ -65,7 +65,7 @@ describe('User REST API', () => {
       const newUser = {
         username: 'jaishan',
         firstname: 'Jaishan',
-        lastname: 'BURTON'
+        lastname: 'Burton'
       };
       
       // On ajoute l'user dans la database

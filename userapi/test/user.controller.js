@@ -15,7 +15,7 @@ describe('User', () => {
       const user = {
         username: 'jaishan',
         firstname: 'Jaishan',
-        lastname: 'BURTON'
+        lastname: 'Burton'
       }
       userController.create(user, (err, result) => {
         expect(err).to.be.equal(null)
@@ -27,7 +27,7 @@ describe('User', () => {
     it('passing wrong user parameters', (done) => {
       const user = {
         firstname: 'Jaishan',
-        lastname: 'BURTON'
+        lastname: 'Burton'
       }
       userController.create(user, (err, result) => {
         expect(err).to.not.be.equal(null)
@@ -40,7 +40,7 @@ describe('User', () => {
       const user = {
         username: 'jaishan',
         firstname: 'Jaishan',
-        lastname: 'BURTON'
+        lastname: 'Burton'
       }
 
        // TODO create this test
@@ -62,7 +62,7 @@ describe('User', () => {
       const newUser = {
         username: 'jaishan',
         firstname: 'Jaishan',
-        lastname: 'BURTON'
+        lastname: 'Burton'
       };
        userController.create(newUser, (err, result) => {
         expect(err).to.be.equal(null);
