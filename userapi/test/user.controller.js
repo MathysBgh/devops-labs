@@ -1,13 +1,13 @@
-const { expect } = require('chai')
-const userController = require('../src/controllers/user')
-const db = require('../src/dbClient')
+const { expect } = require('chai');
+const userController = require('../src/controllers/user');
+const db = require('../src/dbClient');
 
 describe('User', () => {
-  
+
   beforeEach(() => {
     // Clean DB before each test
-    db.flushdb()
-  })
+    db.flushdb();
+  });
 
   describe('Create', () => {
 
@@ -16,76 +16,70 @@ describe('User', () => {
         username: 'jaishan',
         firstname: 'Jaishan',
         lastname: 'Burton'
-      }
+      };
       userController.create(user, (err, result) => {
-        expect(err).to.be.equal(null)
-        expect(result).to.be.equal('OK')
-        done()
-      })
-    })
+        expect(err).to.be.null;
+        expect(result).to.equal('OK');
+        done();
+      });
+    });
 
     it('passing wrong user parameters', (done) => {
       const user = {
         firstname: 'Jaishan',
         lastname: 'Burton'
-      }
+      };
       userController.create(user, (err, result) => {
-        expect(err).to.not.be.equal(null)
-        expect(result).to.be.equal(null)
-        done()
-      })
-    })
+        expect(err).to.not.be.null;
+        expect(result).to.be.null;
+        done();
+      });
+    });
 
-    it('avoid creating an existing user', (done)=> {
+    it('avoid creating an existing user', (done) => {
       const user = {
         username: 'jaishan',
         firstname: 'Jaishan',
         lastname: 'Burton'
-      }
+      };
 
-       // TODO create this test
-       // Warning: the user already exists
-       userController.create(user, (err, result) => {
-        expect(err).to.not.be.equal(null)
-        expect(result).to.be.equal(null)
-        expect(err.message).to.be.equal('User already exists');
-        done()
-      })     
-    })
-  })
+      // Check if the user already exists and handle it appropriately
+      userController.create(user, (err, result) => {
+        expect(err).to.not.be.null;
+        expect(result).to.be.null;
+        expect(err.message).to.equal('User already exists');
+        done();
+      });
+    });
+  });
 
   // TODO Create test for the get method
-   describe('Get', ()=> {
-     
-     it('get a user by username', (done) => {
-    // 1. First, create a user to make this unit test independent from the others
+  describe('Get', () => {
+
+    it('get a user by username', (done) => {
       const newUser = {
         username: 'jaishan',
         firstname: 'Jaishan',
         lastname: 'Burton'
       };
-       userController.create(newUser, (err, result) => {
-        expect(err).to.be.equal(null);
-        expect(result).to.be.equal('OK');
-        
-        // 2. Then, check if the result of the get method is correct
-        userController.get('jaishan', (err, result) => {
-          expect(err).to.be.equal(null);
-          expect(result).to.deep.equal(newUser);
+      userController.create(newUser, (err, result) => {
+        expect(err).to.be.null;
+        expect(result).to.equal('OK');
+
+        userController.get('jaishan', (getErr, getUser) => {
+          expect(getErr).to.be.null;
+          expect(getUser).to.deep.equal(newUser);
           done();
         });
       });
-     })
-  
-     it('cannot get a user when it does not exist', (done) => {
-       // Chech with any invalid user
-       // 1. Attempt to get a non-existent user
+    });
+
+    it('cannot get a user when it does not exist', (done) => {
       userController.get('nonexistentuser', (err, result) => {
-        // 2. Check if there is an error and the result is null
-        expect(err).to.not.be.equal(null);
-        expect(result).to.be.equal(null);
-       done()
-     })
-    })
-   })
-})
+        expect(err).to.not.be.null;
+        expect(result).to.be.null;
+        done();
+      });
+    });
+  });
+});
