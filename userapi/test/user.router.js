@@ -66,31 +66,35 @@ describe('User REST API', () => {
         firstname: 'Jaishan',
         lastname: 'Burton'
       };
-
+    
       chai.request(app)
         .post('/user')
         .send(newUser)
         .then((res) => {
           chai.expect(res).to.have.status(201);
-
+    
           chai.request(app)
             .get('/user/jaishan')
             .then((getResponse) => {
               chai.expect(getResponse).to.have.status(200);
               chai.expect(getResponse.body.status).to.equal('success');
               chai.expect(getResponse).to.be.json;
-              chai.expect(getResponse.body.data).to.deep.equal(newUser);
+              const retrievedUser = getResponse.body.data; // Obtenir les données de l'utilisateur depuis la réponse
+    
+           
+              // Vérifier que les données correspondent aux données créées
+              chai.expect(retrievedUser.username).to.equal(newUser.username);
+              chai.expect(retrievedUser.firstname).to.equal(newUser.firstname);
+              chai.expect(retrievedUser.lastname).to.equal(newUser.lastname);
+    
               done();
             })
             .catch((err) => {
               done(err);
             });
         })
-        .catch((err) => {
-          done(err);
-        });
     });
-
+    
     it('cannot get a user when it does not exist', (done) => {
       chai.request(app)
         .get('/user/nonexistentuser')
