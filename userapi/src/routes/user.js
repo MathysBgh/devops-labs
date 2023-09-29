@@ -21,6 +21,7 @@ userRouter
       resp.status(201).json(respObj)
     })
   })
+  //Route user GET pour la reconnaissance de l'utilisateur
    .get('/:username', (req, resp, next) => { // Express URL params - https://expressjs.com/en/guide/routing.html
      // TODO Create get method API
      const username = req.params.username
@@ -38,7 +39,6 @@ userRouter
       };
       resp.status(200).json(respObj);
     });
-  
   
     })
   
