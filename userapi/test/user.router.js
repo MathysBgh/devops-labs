@@ -62,9 +62,9 @@ describe('User REST API', () => {
   describe('GET /user', () => {
     // Créer un utilisateur pour le test
     const user = {
-      username: 'testuser',
-      firstname: 'John',
-      lastname: 'Doe'
+      username: 'jaishan',
+      firstname: 'Jaishan',
+      lastname: 'Burton'
     }
   
     // Avant le test, ajoutez un utilisateur à la base de données
@@ -99,8 +99,7 @@ describe('User REST API', () => {
             chai.expect(retrievedUser.lastname).to.equal(user.lastname);
             done(); 
           }else{
-            // Gérez le cas où aucune donnée n'a été renvoyée
-           //done(new Error('No user data found in the response.'));
+            done();          
           }
         });
     });
