@@ -6,6 +6,7 @@ It is a basic NodeJS web application exposing REST API that creates and stores u
 
 1. Start a web server
 2. Create a user
+2. Get a user
 
 ## Installation
 

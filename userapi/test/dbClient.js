@@ -1,4 +1,5 @@
 const { expect } = require('chai')
+
 let db
 
 describe('Redis', () => {
