@@ -23,23 +23,24 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    # This step ensures we're in the correct directory for subsequent steps
+    - name: Change to userapi directory
+      working-directory: ./userapi
+      run: echo "Changed to userapi directory"
+
     - name: Use Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
         cache: 'npm'
 
-    # Add a step to change to the userapi directory
-    - name: Change to userapi directory
-      run: cd userapi
-
-    # Add a step to list files for debugging purposes
+    # This step lists files for debugging purposes
     - name: List files in userapi directory
-      run: ls -al userapi
+      run: ls -al
 
-    - run: npm ci --prefix userapi
-    - run: npm run build --if-present --prefix userapi
-    - run: npm test --prefix userapi
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
       env:
         REDIS_HOST: localhost
         REDIS_PORT: 6379 
