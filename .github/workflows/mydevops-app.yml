@@ -43,6 +43,10 @@ jobs:
         with:
           name: node-app
 
+      # Optional step to list directory contents
+      - name: List directory contents
+        run: ls -R
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -50,4 +54,4 @@ jobs:
           app-name: 'mydevops-app'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42421C2727F94EF58406A64851568821 }}
-          package: userapi
+          package: .
