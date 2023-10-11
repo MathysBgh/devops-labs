@@ -1,11 +1,46 @@
 ---
 - hosts: gitlab_server
-  # Run commands as root
   become: true
-  # Roles to be executed on these hosts
   roles:
-  - role: gitlab/install
-    tags: install
+    - role: gitlab/install
+      tags: install
 
-  - role: gitlab/healthchecks
-    tags: check
+    - role: gitlab/healthchecks
+      tags: healthcheck  # Utilisation de l'étiquette "healthcheck" pour le rôle
+
+  tasks:
+    - name: Check GitLab health
+      uri:
+        url: http://127.0.0.1/-/health
+        return_content: yes
+      register: gitlab_health
+      tags: healthcheck  # Ajout d'une étiquette pour cette tâche
+
+    - name: Print GitLab health
+      debug:
+        msg: "{{ gitlab_health.content }}"
+      tags: healthcheck  # Ajout d'une étiquette pour cette tâche
+
+    - name: Readiness Check
+      uri:
+        url: http://localhost:8080/-/readiness
+        return_content: yes
+      register: readiness_check
+      tags: readiness  # Ajout d'une étiquette pour cette tâche
+
+    - name: Display Readiness Check Result
+      debug:
+        msg: "{{ readiness_check.content }}"
+      tags: readiness  # Ajout d'une étiquette pour cette tâche
+
+    - name: Liveness Check
+      uri:
+        url: http://localhost:8080/-/liveness
+        return_content: yes
+      register: liveness_check
+      tags: liveness  # Ajout d'une étiquette pour cette tâche
+
+    - name: Display Liveness Check Result
+      debug:
+        msg: "{{ liveness_check.content }}"
+      tags: liveness  # Ajout d'une étiquette pour cette tâche
