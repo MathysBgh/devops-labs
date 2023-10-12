@@ -14,15 +14,37 @@
 #   retries: 2
 # END OF OPTIONAL TASKS
 
-- name: Check GitLab health
+- name: Check GitLab general health
   uri:
     url: http://127.0.0.1/-/health
     return_content: yes
-  # Register the output of the module in a variable
   register: gitlab_health
 
-- name: Print GitLab health
+- name: Print GitLab general health
   debug:
     msg: "{{ gitlab_health.content }}"
 
-# Run the 2 other kind of health checks below
+- name: Check GitLab readiness
+  uri:
+    url: http://127.0.0.1/-/readiness
+    return_content: yes
+  register: gitlab_readiness
+  tags: readiness
+
+- name: Print GitLab readiness
+  debug:
+    msg: "{{ gitlab_readiness.content }}"
+  tags: readiness
+
+# Vérification de vivacité (liveness check)
+- name: Check GitLab liveness
+  uri:
+    url: http://127.0.0.1/-/liveness
+    return_content: yes
+  register: gitlab_liveness
+  tags: liveness
+
+- name: Print GitLab liveness
+  debug:
+    msg: "{{ gitlab_liveness.content }}"
+  tags: liveness
