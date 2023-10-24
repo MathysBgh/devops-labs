@@ -16,6 +16,22 @@ Le répertoire `lab5` se compose de :
 - `part-1` : La première section du lab5 de DevOps.
 - `part-2` : La seconde section du lab5 de DevOps.
 
+### Lab6: Docker
+
+Le répertoire `lab6` contient des exemples et des configurations liées à Docker :
+
+- **hello-world-docker**: Un exemple simple d'un conteneur Docker exécutant une application "Hello World".
+- **hello-world-docker-compose**: Une version de l'application "Hello World" conçue pour être déployée à l'aide de Docker Compose.
+- **wordpress**: Un exemple de déploiement de l'application WordPress à l'aide de Docker.
+
+### Lab7: Kubernetes
+
+Le répertoire `lab7` est dédié à Kubernetes :
+
+- **deployment.yaml**: Fichier de configuration pour définir un déploiement dans Kubernetes.
+- **service.yaml**: Fichier de configuration pour définir un service Kubernetes.
+
+
 ### UserAPI
 
 Le projet `userapi` est dédié à l'API utilisateur. Il regroupe les laboratoires de DevOps que nous avons effectués, allant du Lab2 au Lab4.
