@@ -44,4 +44,11 @@ Les workflows de GitHub se trouvent dans `.github/workflows`. Ils ont été cré
 
 - Pour le Lab3, les tests ont été menés avec 'Postman'.
 - Lors du Lab4, les tests des workflows sont exécutés automatiquement lors d'un "push" sur la branche principale.
-- Concernant le Lab5, les tests sont effectués via le terminal en utilisant les commandes liées à Vagrant.
+- Concernant le Lab5 (Vagrant):
+  - Les tests sont effectués via le terminal en utilisant les commandes liées à Vagrant.
+- Pour le Lab6 (Docker):
+  - Les images Docker ont été construites et testées localement à l'aide de commandes Docker.
+  - Les conteneurs Docker ont été lancés et testés pour garantir leur bon fonctionnement.
+- Pour le Lab7 (Kubernetes):
+  - Les déploiements, services et autres ressources de Kubernetes ont été appliqués et testés via `kubectl`.
+  - L'accès aux services exposés a été testé via un navigateur web, et des commandes comme `curl` pour confirmer le routage et la disponibilité des services.
