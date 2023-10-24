@@ -9,12 +9,12 @@
 
 Ce dépôt rassemble les projets et ressources associés à nos Labs de DevOps.
 
-### Lab5
+### Lab5: Vagrant
 
-Le répertoire `lab5` se compose de :
+Le répertoire `lab5` se concentre sur l'utilisation de Vagrant pour la création et la gestion de machines virtuelles :
 
-- `part-1` : La première section du lab5 de DevOps.
-- `part-2` : La seconde section du lab5 de DevOps.
+- **part-1**: La première section du lab5 se concentre sur les bases de Vagrant, notamment la mise en place d'une machine virtuelle simple.
+- **part-2**: La seconde section du lab5 approfondit la configuration de Vagrant, abordant des sujets tels que la mise en réseau et le provisionnement.
 
 ### Lab6: Docker
 
