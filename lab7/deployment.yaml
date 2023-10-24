@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kubernetes-bootcamp
 spec:
-  # TO COMPLETE #2
+  replicas: 3  #définition de 3 répliques
   selector:
     matchLabels:
       app: kubernetes-bootcamp
@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: kubernetes-bootcamp
-        # TO COMPLETE #1
+        image: jocatalin/kubernetes-bootcamp:v1  #image utilisé
