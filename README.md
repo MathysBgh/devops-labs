@@ -5,7 +5,7 @@
 - **Jaishan BURTON ELMO**
 - **Mathys BAGNAH**
 
-## Présentation
+## Présentation 
 
 Ce dépôt rassemble les projets et ressources associés à nos Labs de DevOps.
 
