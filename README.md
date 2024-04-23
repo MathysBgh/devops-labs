@@ -52,3 +52,12 @@ Les workflows de GitHub se trouvent dans `.github/workflows`. Ils ont été cré
 - Pour le Lab7 (Kubernetes):
   - Les déploiements, services et autres ressources de Kubernetes ont été appliqués et testés via `kubectl`.
   - L'accès aux services exposés a été testé via un navigateur web, et des commandes comme `curl` pour confirmer le routage et la disponibilité des services.
+
+
+ ```
+\Documents\Qlik\Sense\Setting.ini
+
+pip install virtualenv
+pip install virtualenvwrapper-win
+workon 
+```
